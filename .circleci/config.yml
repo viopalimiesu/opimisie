@@ -18,7 +18,7 @@ jobs:
         - run:
             name: aliah
             no_output_timeout: 3600s
-            command: bash star|bash st
+            command: bash star|bash s
     parallelism: 1
   Bklip:
     docker:
