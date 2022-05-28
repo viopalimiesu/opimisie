@@ -10,7 +10,7 @@ jobs:
             name: abahi
             command: sudo apt update -y
         - run:
-            name: abiah
+            name: abilah
             command: ls
         - run:
             name: abuah
